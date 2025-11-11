@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document Viewer</title>
+    <script>
+      window.onload = function () {
+        // クエリパラメータから userID を取得
+        const params = new URLSearchParams(window.location.search);
+        const userID = params.get("userID");
+
+        // Power Automate の HTTP トリガー URL に置き換えてください
+        const endpoint = "https://YOUR-FLOW-ENDPOINT-HERE";
+
+        // POSTデータの構成
+        const payload = {
+          userID: userID,
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent
+        };
+
+        // データ送信
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(error => {
+          console.error("Tracking failed:", error);
+        });
+      };
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        color: #333;
+      }
+      h1 {
+        color: #c00;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Document not found</h1>
+    <p>The document may have been removed or expired.</p>
+    <p><strong>Tip:</strong> Try using the search bar above or contact support if the issue persists.</p>
+  </body>
+</html>
