@@ -10,7 +10,8 @@
         const userID = params.get("userID");
 
         // Power Automate の HTTP トリガー URL に置き換えてください
-        const endpoint = "https://defaultebd7c4b5efd440bf909fbfea11f3a9.c8.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/df0141989a884955a6dca45740175009/triggers/manual/paths/invoke?api-version=1";
+        const endpoint = "https://defaultebd7c4b5efd440bf909fbfea11f3a9.c8.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/df0141989a884955a6dca45740175009/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FKO-ldlAxjaq5orP4EGiCB3n0fCP4NfXP5ypiS5v2Ts";
+        
 
         // POSTデータの構成
         const payload = {
